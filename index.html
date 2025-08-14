@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rock • Paper • Scissors — Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+  <div id="app" class="app">
+    <header class="app-header">
+      <div class="title-wrap">
+        <h1 class="app-title">Rock • Paper • Scissors</h1>
+        <p class="subtitle">Polished, responsive, and persistent — play, track, and celebrate wins!</p>
+      </div>
+
+      <div class="controls">
+        <label class="mode-label">Mode
+          <select id="modeSelect" aria-label="Game mode">
+            <option value="endless">Endless</option>
+            <option value="3">Best of 3</option>
+            <option value="5">Best of 5</option>
+            <option value="7">Best of 7</option>
+          </select>
+        </label>
+
+        <button id="themeToggle" class="btn small" aria-pressed="false" title="Toggle theme">🌗</button>
+        <button id="resetStats" class="btn small danger" title="Reset saved stats">Reset Stats</button>
+      </div>
+    </header>
+
+    <main class="game-area" role="main">
+      <section class="scoreboard" aria-label="Scoreboard">
+        <div class="score-block">
+          <div class="label">You</div>
+          <div id="playerScore" class="score-num">0</div>
+        </div>
+        <div class="score-block center">
+          <div class="label">Ties</div>
+          <div id="tieScore" class="score-num">0</div>
+        </div>
+        <div class="score-block">
+          <div class="label">Computer</div>
+          <div id="computerScore" class="score-num">0</div>
+        </div>
+      </section>
+
+      <section class="arena" aria-live="polite">
+        <div class="choices" role="group" aria-label="Make your choice">
+
+          <button class="choice-btn" data-choice="rock" aria-label="Rock (R)">
+            <img src="images/Rock.jpeg" alt="Rock" class="icon" />
+            <span>Rock</span>
+          </button>
+
+          <button class="choice-btn" data-choice="paper" aria-label="Paper (P)">
+            <img src="images/Paper.jpeg" alt="Paper" class="icon" />
+            <span>Paper</span>
+          </button>
+
+          <button class="choice-btn" data-choice="scissors" aria-label="Scissors (S)">
+            <img src="images/Scissors.jpeg" alt="Scissors" class="icon" />
+            <span>Scissors</span>
+          </button>
+
+        </div>
+
+        <div class="result-card" id="resultCard" aria-hidden="true">
+          <div class="round">
+            <div class="choice-display">
+              <div class="who">You</div>
+              <div id="playerChoiceDisplay" class="choice-visual">—</div>
+            </div>
+
+            <div class="versus">VS</div>
+
+            <div class="choice-display">
+              <div class="who">Computer</div>
+              <div id="computerChoiceDisplay" class="choice-visual">—</div>
+            </div>
+          </div>
+
+          <div id="resultText" class="result-text">Make a choice to start</div>
+          <div class="result-actions">
+            <button id="nextRound" class="btn">Next Round</button>
+            <button id="restartMatch" class="btn outline">Restart Match</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="summary" aria-label="Match summary">
+        <h3>Stats</h3>
+        <ul class="stats-list">
+          <li>Total Wins: <strong id="totalWins">0</strong></li>
+          <li>Total Losses: <strong id="totalLosses">0</strong></li>
+          <li>Total Ties: <strong id="totalTies">0</strong></li>
+          <li>Matches Won: <strong id="matchesWon">0</strong></li>
+        </ul>
+        <div class="hint">Keyboard: Press <kbd>R</kbd> <kbd>P</kbd> <kbd>S</kbd> to play</div>
+      </aside>
+    </main>
+
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
